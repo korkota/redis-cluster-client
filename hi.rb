@@ -3,18 +3,18 @@ require 'json'
 require './cluster'
 
 startup_nodes = [
-    {:host => "127.0.0.1", :port => 7000},
-    {:host => "127.0.0.1", :port => 7001},
-    {:host => "127.0.0.1", :port => 7002},
-    {:host => "127.0.0.1", :port => 7003},
-    {:host => "127.0.0.1", :port => 7004},
-    {:host => "127.0.0.1", :port => 7005}
+    {:host => "127.0.0.1", :port => 30001},
+    {:host => "127.0.0.1", :port => 30002},
+    {:host => "127.0.0.1", :port => 30003},
+    {:host => "127.0.0.1", :port => 30004},
+    {:host => "127.0.0.1", :port => 30005},
+    {:host => "127.0.0.1", :port => 30006}
 ]
 
 rc =  RedisCluster.new(startup_nodes,32,:timeout => 0.1)
 
 configure do
-  set :bind, '192.168.2.101'
+  set :bind, '0.0.0.0'
   set :port, 12000 
 end
 
